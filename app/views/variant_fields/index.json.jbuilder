@@ -1,0 +1,1 @@
+json.array! @variant_fields, partial: 'variant_fields/variant_field', as: :variant_field

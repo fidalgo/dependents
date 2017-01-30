@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Variant Fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Belongs to</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @variant_fields.each do |variant_field| %>
+      <tr>
+        <td><%= variant_field.name %></td>
+        <td><%= variant_field.belongs_to %></td>
+        <td><%= link_to 'Show', variant_field %></td>
+        <td><%= link_to 'Edit', edit_variant_field_path(variant_field) %></td>
+        <td><%= link_to 'Destroy', variant_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Variant Field', new_variant_field_path %>

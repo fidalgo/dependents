@@ -1,0 +1,2 @@
+module VariantFieldsHelper
+end

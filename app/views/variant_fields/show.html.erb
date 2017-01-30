@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @variant_field.name %>
+</p>
+
+<p>
+  <strong>Belongs to:</strong>
+  <%= @variant_field.belongs_to %>
+</p>
+
+<%= link_to 'Edit', edit_variant_field_path(@variant_field) %> |
+<%= link_to 'Back', variant_fields_path %>

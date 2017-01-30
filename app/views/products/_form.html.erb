@@ -1,0 +1,46 @@
+<%= form_for(product) do |f| %>
+<% if product.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(product.errors.count, "error") %>
+    prohibited this product from being saved:</h2>
+
+  <ul>
+    <% product.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :name, 'Product name' %>
+  <%= f.text_field :name %>
+</div>
+
+<%= f.nested_fields_for :variants do |v|   %>
+<div class="field">
+  <%= v.remove_nested_fields_link  %>
+
+  <%= v.label :name, 'Variant name' %>
+  <%= v.text_field :name  %>
+
+  <%= v.nested_fields_for :variant_fields do |vf| %>
+  <%= vf.remove_nested_fields_link  %>
+
+  <div class="field">
+    <%= vf.label :name, 'VariantField name' %>
+    <%= vf.text_field :name  %>
+  </div>
+
+  <%= vf.add_nested_fields_link :variant_fields %>
+
+  <% end %>
+</div>
+<% end %>
+
+<%= f.add_nested_fields_link :variants %>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
